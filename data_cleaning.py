@@ -32,6 +32,9 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjgAAAFbCAYAAADY/fSfAAAgAElEQVR4nO
   
 # this is a dirty room
 # kele ka chilka, makdi ka jaala, water bottol - this is dirty data which has quality issues.
+
+
+
 # 1: dirty data:
       # duplicated data
       # missing data
@@ -373,3 +376,17 @@ treatments_df['start_dose'] = treatments_df['start_dose'].astype('int')
 treatments_df['end_dose'] = treatments_df['end_dose'].astype('int')
 
 treatments_df.info()
+
+
+
+# define: adverse reaction tables shudnt exist independetly
+
+#code & test
+
+treatments_df = treatments_df.merge(adverse_reaction_df,how = 'left', on = ['given_name','surname'])
+treatments_df.head()
+
+
+
+#all messy data issues fixed, now move to validity, accuracy & consistency
+
